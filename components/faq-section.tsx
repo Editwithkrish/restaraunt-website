@@ -133,10 +133,10 @@ export default function FAQSection() {
               <CardContent className="p-6">
                 <h4 className="font-bold text-maroon-800 mb-2">{t("faq.stillHaveQuestions")}</h4>
                 <p className="text-gray-600 mb-4">{t("faq.contactUs")}</p>
-                <div className="flex flex-col sm:flex-row gap-2 text-sm text-saffron-700">
-                  <span>📞 7417007124 • 7709007626 • 9422553007</span>
+                <div className="flex flex-col sm:flex-row gap-2 text-sm text-[#E25822]">
+                  <span>📞 7417007124</span>
                   <span className="hidden sm:inline">|</span>
-                  <span>📧 info@hotelraghunandan.com</span>
+                  <span>📧 suruchikitchen7@gmail.com</span>
                 </div>
               </CardContent>
             </Card>

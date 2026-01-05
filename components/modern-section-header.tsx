@@ -15,6 +15,7 @@ export default function ModernSectionHeader({
   title,
   subtitle,
   description,
+  icon,
   className = "",
 }: ModernSectionHeaderProps) {
   return (

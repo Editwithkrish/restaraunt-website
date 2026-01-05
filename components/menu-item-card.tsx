@@ -1,13 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
-import { Phone, Star, ChevronRight } from "lucide-react"
-import { motion } from "framer-motion"
-import CallModal from "./call-modal"
 
 interface MenuItemCardProps {
   name: string

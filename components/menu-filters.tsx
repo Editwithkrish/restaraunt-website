@@ -6,58 +6,6 @@ import { Badge } from "@/components/ui/badge"
 import { Check, Filter, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
-export type FilterOption = {
-  id: string
-  label: string
-  color?: string
-}
-
-interface MenuFiltersProps {
-  onFilterChange: (filters: string[]) => void
-  availableFilters: FilterOption[]
-  className?: string
-}
-
-export default function MenuFilters({ onFilterChange, availableFilters, className }: MenuFiltersProps) {
-  const [activeFilters, setActiveFilters] = useState<string[]>([])
-
-  const toggleFilter = (filterId: string) => {
-    setActiveFilters((prev) => {
-      const newFilters = prev.includes(filterId) ? prev.filter((id) => id !== filterId) : [...prev, filterId]
-      onFilterChange(newFilters)
-      return newFilters
-    })
-  }
-
-  const clearFilters = () => {
-    setActiveFilters([])
-    onFilterChange([])
-  }
-
-  const getFilterBadgeColor = (filterId: string) => {
-    const filter = availableFilters.find((f) => f.id === filterId)
-    return filter?.color || "bg-gray-100 text-gray-800"
-  }
-
-  return (
-    <div className={`flex flex-wrap items-center gap-3 ${className}`}>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="sm" className="flex items-center gap-2 h-10 border-2 border-primary/10 rounded-xl font-black uppercase tracking-widest text-[10px] shadow-sm hover:bg-primary/5">
-            <Filter className="h-4 w-4 text-primary" />
-            <span>Smart Filter</span>
-            {activeFilters.length > 0 && (
-              <Badge variant="secondary" className="ml-1 bg-primary text-primary-foreground">
                 {activeFilters.length}
               </Badge>
             )}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { ChefHat, Utensils, CheckCircle, Shield } from "lucide-react"
 import { useTranslation } from "@/hooks/use-translation"
 import ModernSectionHeader from "./modern-section-header"
+import EnhancedCard from "./enhanced-card"
 
 export default function SeparateUtensilsSection() {
   const { t } = useTranslation()

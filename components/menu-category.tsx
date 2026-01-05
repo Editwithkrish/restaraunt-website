@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import MenuFilters, { type FilterOption } from "@/components/menu-filters"
 import { motion, AnimatePresence } from "framer-motion"
 import { useTranslation } from "@/hooks/use-translation"
+import MarathiDecorativeBorder from "@/components/marathi-decorative-border"
 
 interface MenuItem {
   id: string

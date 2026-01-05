@@ -102,6 +102,7 @@ export default function Home() {
 
   const navItems = [
     { name: "about", href: "#about" },
+    { name: "offers", href: "#offers" },
     { name: "menu", href: "#menu" },
     { name: "location", href: "#location" },
     { name: "contact", href: "#contact" },

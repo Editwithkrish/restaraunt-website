@@ -450,6 +450,16 @@ export const menuData = {
 
   biryani: [
     {
+      id: "veg-biryani",
+      name: "व्हेज बिर्याणी",
+      englishName: "Veg Biryani",
+      price: "₹180",
+      description: "Fragrant basmati rice layered with mixed vegetables and aromatic spices.",
+      image: MENU_IMAGES.rice.vegBiryani,
+      isVeg: true,
+      isPopular: true,
+    },
+    {
       id: "chicken-biryani",
       name: "चिकन बिर्याणी",
       englishName: "Chicken Biryani",
@@ -479,38 +489,6 @@ export const menuData = {
       isVeg: true,
     },
     {
-      id: "egg-biryani",
-      name: "एग बिर्याणी",
-      englishName: "Egg Biryani",
-      price: "₹150",
-      description: "Flavorful rice dish with boiled eggs and aromatic spices.",
-      image: "/placeholder.svg?height=400&width=600&text=Egg+Biryani",
-      isVeg: false,
-    },
-  ],
-
-  thali: [
-    {
-      id: "north-indian-thali",
-      name: "नॉर्थ इंडियन थाळी",
-      englishName: "North Indian Thali",
-      price: "₹180",
-      description: "Complete meal with roti, rice, dal, vegetable curry, raita, pickle, papad, and sweet dish.",
-      image: MENU_IMAGES.thali.maharashtrianThali,
-      isVeg: true,
-      isPopular: true,
-    },
-    {
-      id: "maharashtrian-thali",
-      name: "महाराष्ट्रीयन थाळी",
-      englishName: "Maharashtrian Thali",
-      price: "₹160",
-      description: "Traditional meal with bhakri, rice, dal, two vegetables, pickle, papad, and sweet.",
-      image: MENU_IMAGES.thali.southIndianThali,
-      isVeg: true,
-    },
-  ],
-
   mainCourseMaharashtrian: [
     {
       id: "pithala",
