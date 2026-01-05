@@ -66,11 +66,17 @@ export default function Home() {
   // Search logic
   const allMenuItems = Object.values(menuData).flat()
   const searchResults = searchQuery.trim().length > 1
-    ? allMenuItems.filter(item =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.englishName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.description?.toLowerCase().includes(searchQuery.toLowerCase())
-    )
+    ? allMenuItems.filter(item => {
+      const lowerQuery = searchQuery.toLowerCase();
+      // If searching for "bestseller", show items marked as popular
+      if (lowerQuery === "bestseller") return (item as any).isPopular;
+
+      return (
+        item.name.toLowerCase().includes(lowerQuery) ||
+        item.englishName?.toLowerCase().includes(lowerQuery) ||
+        item.description?.toLowerCase().includes(lowerQuery)
+      );
+    })
     : []
 
   useEffect(() => {

@@ -450,21 +450,11 @@ export const menuData = {
 
   biryani: [
     {
-      id: "veg-biryani",
-      name: "व्हेज बिर्याणी",
-      englishName: "Veg Biryani",
-      price: "₹180",
-      description: "Fragrant basmati rice layered with mixed vegetables and aromatic spices.",
-      image: MENU_IMAGES.rice.vegBiryani,
-      isVeg: true,
-      isPopular: true,
-    },
-    {
       id: "chicken-biryani",
       name: "चिकन बिर्याणी",
       englishName: "Chicken Biryani",
       price: "₹220",
-      description: "Aromatic basmati rice layered with tender chicken pieces and traditional spices.",
+      description: "Aromatic basmati rice layered with tender chicken pieces and traditional spices. Our Bestseller!",
       image: "/placeholder.svg?height=400&width=600&text=Chicken+Biryani",
       isVeg: false,
       isPopular: true,
@@ -474,7 +464,7 @@ export const menuData = {
       name: "पनीर बिर्याणी",
       englishName: "Paneer Biryani",
       price: "₹190",
-      description: "Premium basmati rice layered with marinated paneer cubes and exquisite spices.",
+      description: "Premium basmati rice layered with marinated paneer cubes and exquisite spices. Most Loved!",
       image: "/placeholder.svg?height=400&width=600&text=Paneer+Biryani",
       isVeg: true,
       isPopular: true,
@@ -487,8 +477,42 @@ export const menuData = {
       description: "Fragrant basmati rice layered with mixed vegetables and aromatic spices.",
       image: MENU_IMAGES.rice.vegBiryani,
       isVeg: true,
+      isPopular: true,
+    },
+  ],
+
+  thali: [
+    {
+      id: "maharashtrian-thali",
+      name: "महाराष्ट्रीयन थाळी",
+      englishName: "Maharashtrian Thali",
+      price: "₹180",
+      description: "Complete traditional Maharashtrian meal with rice, chapati, dal, sabzi, and sweet.",
+      image: MENU_IMAGES.thali.maharashtrianThali,
+      isVeg: true,
+      isPopular: true,
     },
     {
+      id: "south-indian-thali",
+      name: "साउथ इंडियन थाळी",
+      englishName: "South Indian Thali",
+      price: "₹160",
+      description: "Authentic South Indian platter with rice, sambar, rasam, and assorted dishes.",
+      image: MENU_IMAGES.thali.southIndianThali,
+      isVeg: true,
+      isPopular: true,
+    },
+    {
+      id: "jain-thali",
+      name: "जैन थाळी",
+      englishName: "Jain Thali",
+      price: "₹170",
+      description: "Special Jain meal prepared without onion and garlic, with traditional accompaniments.",
+      image: MENU_IMAGES.thali.jainThali,
+      isVeg: true,
+    },
+  ],
+
   mainCourseMaharashtrian: [
     {
       id: "pithala",
