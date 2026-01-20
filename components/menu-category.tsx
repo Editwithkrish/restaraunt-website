@@ -130,6 +130,7 @@ export default function MenuCategory({ title, subtitle, items, className, initia
             {displayItems.map((itemValue) => (
               <motion.div key={itemValue.id} variants={item}>
                 <MenuItemCard
+                  id={itemValue.id}
                   name={itemValue.name}
                   englishName={itemValue.englishName}
                   price={itemValue.price}

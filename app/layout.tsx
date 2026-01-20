@@ -2,14 +2,22 @@ import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Poppins } from "next/font/google"
+import { Poppins, Playfair_Display } from "next/font/google"
 import localFont from "next/font/local"
+import { CartProvider } from "@/context/cart-context"
+import CartSheet from "@/components/cart-sheet"
 
 // Import fonts
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
+})
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--font-playfair",
 })
 
 // Simulate a Devanagari font for Marathi text
@@ -33,9 +41,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${marathi.variable} font-sans`}>
+      <body className={`${poppins.variable} ${playfair.variable} ${marathi.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
+          <CartProvider>
+            {children}
+            <CartSheet />
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>

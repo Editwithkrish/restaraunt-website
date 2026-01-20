@@ -19,16 +19,16 @@ export const BRANDING_IMAGES = {
 
   // High-quality favicon (recommended size: 32x32px)
   favicon: "/images/favicon.ico",
-}
+};
 
 // 🎨 PREMIUM HERO SECTION IMAGES
 export const HERO_IMAGES = {
   // Luxurious hero background (recommended size: 1920x1080px, professional photography)
-  heroBackground: "/placeholder.svg?height=1080&width=1920&text=Luxury+Traditional+Restaurant",
+  heroBackground: "/images/hero-thali.png",
 
   // Premium restaurant interior photo (recommended size: 800x600px, professional lighting)
-  restaurantInterior: "/placeholder.svg?height=600&width=800&text=Premium+Restaurant+Interior",
-}
+  restaurantInterior: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
+};
 
 // 🍽️ PREMIUM MENU SECTION IMAGES
 // ===============================
@@ -38,227 +38,214 @@ export const HERO_IMAGES = {
 export const MENU_IMAGES = {
   // 🌅 MAHARASHTRIAN BREAKFAST - Premium Collection
   maharashtrianBreakfast: {
-    poha: "/placeholder.svg?height=400&width=600&text=Premium+Poha",
-    upit: "/placeholder.svg?height=400&width=600&text=Premium+Upit",
-    sheera: "/placeholder.svg?height=400&width=600&text=Premium+Sheera",
-    misalPav: "/placeholder.svg?height=400&width=600&text=Premium+Misal+Pav",
-    vadaPav: "/placeholder.svg?height=400&width=600&text=Premium+Vada+Pav",
-    cutVada: "/placeholder.svg?height=400&width=600&text=Premium+Cut+Vada",
-    kothimbirVadi: "/placeholder.svg?height=400&width=600&text=Premium+Kothimbir+Vadi",
-    alooVadi: "/placeholder.svg?height=400&width=600&text=Premium+Aloo+Vadi",
-    nashtaThali: "/placeholder.svg?height=400&width=600&text=Premium+Nashta+Thali",
+    poha: "https://loremflickr.com/600/400/poha,indian,breakfast",
+    upit: "https://loremflickr.com/600/400/upma,indian,food",
+    sheera: "https://loremflickr.com/600/400/pudding,sweet,dessert",
+    misalPav: "https://loremflickr.com/600/400/curry,spicy,indian",
+    vadaPav: "https://loremflickr.com/600/400/burger,street-food,vada-pav",
+    cutVada: "https://loremflickr.com/600/400/vada,fritter,indian",
+    kothimbirVadi: "https://loremflickr.com/600/400/coriander,snack,indian",
+    alooVadi: "https://loremflickr.com/600/400/snack,leafy,indian",
+    nashtaThali: "https://loremflickr.com/600/400/thali,breakfast,indian",
   },
 
   // 🙏 UPVAS/FASTING SPECIAL - Premium Collection
   upvasSpecial: {
-    sabudanaVada: "/placeholder.svg?height=400&width=600&text=Premium+Sabudana+Vada",
-    sabudanaKhichdi: "/placeholder.svg?height=400&width=600&text=Premium+Sabudana+Khichdi",
-    sabudanaKachori: "/placeholder.svg?height=400&width=600&text=Premium+Sabudana+Kachori",
-    bhagarRice: "/placeholder.svg?height=400&width=600&text=Premium+Bhagar+Rice",
-    faraliThali: "/placeholder.svg?height=400&width=600&text=Premium+Farali+Thali",
+    sabudanaVada: "https://loremflickr.com/600/400/snack,fritter,tapioca",
+    sabudanaKhichdi: "https://loremflickr.com/600/400/khichdi,tapioca,indian",
+    sabudanaKachori: "https://loremflickr.com/600/400/kachori,snack,indian",
+    bhagarRice: "https://loremflickr.com/600/400/rice,bowl,food",
+    faraliThali: "https://loremflickr.com/600/400/thali,fasting,indian",
   },
 
   // 🥥 SOUTH INDIAN - Premium Collection
   southIndian: {
-    idliSambar: "/placeholder.svg?height=400&width=600&text=Premium+Idli+Sambar",
-    mixMeduVada: "/placeholder.svg?height=400&width=600&text=Premium+Mix+Medu+Vada",
-    meduVada: "/placeholder.svg?height=400&width=600&text=Premium+Medu+Vada",
-    batataVada: "/placeholder.svg?height=400&width=600&text=Premium+Batata+Vada",
-    plainDosa: "/placeholder.svg?height=400&width=600&text=Premium+Plain+Dosa",
-    masalaDosa: "/placeholder.svg?height=400&width=600&text=Premium+Masala+Dosa",
-    paperPlainDosa: "/placeholder.svg?height=400&width=600&text=Premium+Paper+Plain+Dosa",
-    paperMasalaDosa: "/placeholder.svg?height=400&width=600&text=Premium+Paper+Masala+Dosa",
-    mysorePlainDosa: "/placeholder.svg?height=400&width=600&text=Premium+Mysore+Plain+Dosa",
+    idliSambar: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&h=400&fit=crop",
+    mixMeduVada: "https://loremflickr.com/600/400/vada,southindian,food",
+    meduVada: "https://loremflickr.com/600/400/meduvada,indian,food",
+    batataVada: "https://loremflickr.com/600/400/batatavada,potato,snack",
+    plainDosa: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600&h=400&fit=crop",
+    masalaDosa: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=600&h=400&fit=crop",
+    paperPlainDosa: "https://loremflickr.com/600/400/dosa,crispy,food",
+    paperMasalaDosa: "https://loremflickr.com/600/400/masaladosa,indian,food",
+    mysorePlainDosa: "https://loremflickr.com/600/400/dosa,spicy,food",
   },
 
   // 🍲 SOUPS - Premium Collection
   soups: {
-    vegManchowSoup: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Manchow+Soup",
-    vegHotSourSoup: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Hot+Sour+Soup",
-    vegSweetCornSoup: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Sweet+Corn+Soup",
-    vegTomatoSoup: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Tomato+Soup",
+    vegManchowSoup: "https://loremflickr.com/600/400/soup,manchow,chinese",
+    vegHotSourSoup: "https://loremflickr.com/600/400/soup,hotsour,chinese",
+    vegSweetCornSoup: "https://loremflickr.com/600/400/soup,sweetcorn,chinese",
+    vegTomatoSoup: "https://loremflickr.com/600/400/soup,tomato,food",
   },
 
   // 🍛 MAIN COURSE - MAHARASHTRIAN Premium Collection
   maharashtrianMainCourse: {
-    pithala: "/placeholder.svg?height=400&width=600&text=Premium+Pithala",
-    bharlaVanga: "/placeholder.svg?height=400&width=600&text=Premium+Bharla+Vanga",
-    puriBhaji: "/placeholder.svg?height=400&width=600&text=Premium+Puri+Bhaji",
-    matkiUsal: "/placeholder.svg?height=400&width=600&text=Premium+Matki+Usal",
-    bhakri: "/placeholder.svg?height=400&width=600&text=Premium+Bhakri",
-    aamtiBhat: "/placeholder.svg?height=400&width=600&text=Premium+Aamti+Bhat",
+    pithala: "https://loremflickr.com/600/400/curry,maharashtrian,food",
+    bharlaVanga: "https://loremflickr.com/600/400/eggplant,curry,indian",
+    puriBhaji: "https://loremflickr.com/600/400/puribhaji,indian,food",
+    matkiUsal: "https://loremflickr.com/600/400/sprouts,curry,indian",
+    bhakri: "https://loremflickr.com/600/400/flatbread,indian,food",
+    aamtiBhat: "https://loremflickr.com/600/400/dal,rice,indian",
   },
 
   // 🍛 MAIN COURSE - GENERAL Premium Collection
   mainCourse: {
-    mixVeg: "/placeholder.svg?height=400&width=600&text=Premium+Mix+Veg",
-    vegKadhai: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Kadhai",
-    vegKolhapuri: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Kolhapuri",
-    paneerButterMasala: "/placeholder.svg?height=400&width=600&text=Premium+Paneer+Butter+Masala",
-    palakPaneer: "/placeholder.svg?height=400&width=600&text=Premium+Palak+Paneer",
-    malaiKofta: "/placeholder.svg?height=400&width=600&text=Premium+Malai+Kofta",
+    mixVeg: "https://loremflickr.com/600/400/vegetables,curry,indian",
+    vegKadhai: "https://loremflickr.com/600/400/kadai,curry,food",
+    vegKolhapuri: "https://loremflickr.com/600/400/spicy,curry,red",
+    paneerButterMasala: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&h=400&fit=crop",
+    palakPaneer: "https://images.unsplash.com/photo-1618123069754-cd64c210d169?w=600&h=400&fit=crop",
+    malaiKofta: "https://loremflickr.com/600/400/kofta,creamy,indian",
   },
 
   // 🍽️ THALI - Premium Collection
   thali: {
-    maharashtrianThali: "/placeholder.svg?height=400&width=600&text=Premium+Maharashtrian+Thali",
-    southIndianThali: "/placeholder.svg?height=400&width=600&text=Premium+South+Indian+Thali",
-    jainThali: "/placeholder.svg?height=400&width=600&text=Premium+Jain+Thali",
+    maharashtrianThali: "https://loremflickr.com/600/400/thali,maharashtrian,food",
+    southIndianThali: "https://loremflickr.com/600/400/thali,southindian,food",
+    jainThali: "https://loremflickr.com/600/400/thali,jain,food",
   },
 
   // 🎉 SPECIAL ITEMS - Premium Collection
   special: {
-    ukdicheModak: "/placeholder.svg?height=400&width=600&text=Premium+Ukdiche+Modak",
+    ukdicheModak: "https://loremflickr.com/600/400/modak,sweet,indian",
   },
 
   // 🥢 CHINESE STARTERS - Premium Collection
   chineseStarters: {
-    vegManchurianDry: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Manchurian+Dry",
-    gobiManchurianDry: "/placeholder.svg?height=400&width=600&text=Premium+Gobi+Manchurian+Dry",
-    paneerChilliDry: "/placeholder.svg?height=400&width=600&text=Premium+Paneer+Chilli+Dry",
-    paneer65: "/placeholder.svg?height=400&width=600&text=Premium+Paneer+65",
+    vegManchurianDry: "https://loremflickr.com/600/400/manchurian,chinese,indian",
+    gobiManchurianDry: "https://loremflickr.com/600/400/cauliflower,manchurian,chinese",
+    paneerChilliDry: "https://loremflickr.com/600/400/paneer,chilli,chinese",
+    paneer65: "https://loremflickr.com/600/400/paneer,deepfried,indian",
   },
 
   // 🔥 TANDOOR STARTERS - Premium Collection
   tandoorStarters: {
-    paneerTikka: "/placeholder.svg?height=400&width=600&text=Premium+Paneer+Tikka",
-    paneerBanjaraKabab: "/placeholder.svg?height=400&width=600&text=Premium+Paneer+Banjara+Kabab",
-    paneerMakhmaliKabab: "/placeholder.svg?height=400&width=600&text=Premium+Paneer+Makhmali+Kabab",
-    mushroomTikka: "/placeholder.svg?height=400&width=600&text=Premium+Mushroom+Tikka",
+    paneerTikka: "https://loremflickr.com/600/400/paneertikka,tandoor,indian",
+    paneerBanjaraKabab: "https://loremflickr.com/600/400/kabab,paneer,indian",
+    paneerMakhmaliKabab: "https://loremflickr.com/600/400/kabab,creamy,indian",
+    mushroomTikka: "https://loremflickr.com/600/400/mushroom,tikka,tandoor",
   },
 
   // 🍞 PAV BHAJI - Premium Collection
   pavBhaji: {
-    pavBhaji: "/placeholder.svg?height=400&width=600&text=Premium+Pav+Bhaji",
-    cheesePavBhaji: "/placeholder.svg?height=400&width=600&text=Premium+Cheese+Pav+Bhaji",
-    jainPavBhaji: "/placeholder.svg?height=400&width=600&text=Premium+Jain+Pav+Bhaji",
+    pavBhaji: "https://loremflickr.com/600/400/pavbhaji,mumbai,streetfood",
+    cheesePavBhaji: "https://loremflickr.com/600/400/pavbhaji,cheese,indian",
+    jainPavBhaji: "https://loremflickr.com/600/400/pavbhaji,vegetarian,indian",
   },
 
   // 🍚 RICE DISHES - Premium Collection
   rice: {
-    vegPulao: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Pulao",
-    vegBiryani: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Biryani",
-    jeeraRice: "/placeholder.svg?height=400&width=600&text=Premium+Jeera+Rice",
-    curdRice: "/placeholder.svg?height=400&width=600&text=Premium+Curd+Rice",
+    vegPulao: "https://loremflickr.com/600/400/rice,pulao,vegetables",
+    vegBiryani: "https://loremflickr.com/600/400/biryani,vegetables,indian",
+    jeeraRice: "https://loremflickr.com/600/400/rice,cumin,indian",
+    curdRice: "https://loremflickr.com/600/400/rice,curd,southindian",
   },
 
   // 🍞 BREADS - Premium Collection
   breads: {
-    chapati: "/placeholder.svg?height=400&width=600&text=Premium+Chapati",
-    butterNaan: "/placeholder.svg?height=400&width=600&text=Premium+Butter+Naan",
-    garlicNaan: "/placeholder.svg?height=400&width=600&text=Premium+Garlic+Naan",
-    lacchaParatha: "/placeholder.svg?height=400&width=600&text=Premium+Laccha+Paratha",
+    chapati: "https://loremflickr.com/600/400/chapati,flatbread,indian",
+    butterNaan: "https://loremflickr.com/600/400/naan,butter,indian",
+    garlicNaan: "https://loremflickr.com/600/400/naan,garlic,indian",
+    lacchaParatha: "https://loremflickr.com/600/400/paratha,layered,indian",
   },
 
   // 🥢 CHINESE MAIN COURSE - Premium Collection
   chinese: {
-    vegFriedRice: "/placeholder.svg?height=400&width=600&text=Premium+Veg+Fried+Rice",
-    vegSchezwanFriedRice: "/placeholder.svg?height=400&width=600&text=Premium+Schezwan+Fried+Rice",
-    vegHakkaNoodles: "/placeholder.svg?height=400&width=600&text=Premium+Hakka+Noodles",
-    vegSchezwanNoodles: "/placeholder.svg?height=400&width=600&text=Premium+Schezwan+Noodles",
+    vegFriedRice: "https://loremflickr.com/600/400/friedrice,chinese,food",
+    vegSchezwanFriedRice: "https://loremflickr.com/600/400/friedrice,spicy,chinese",
+    vegHakkaNoodles: "https://loremflickr.com/600/400/noodles,hakka,chinese",
+    vegSchezwanNoodles: "https://loremflickr.com/600/400/noodles,spicy,chinese",
   },
 
   // 🙏 JAIN FOOD - Premium Collection
   jainFood: {
-    jainPaneerButterMasala: "/placeholder.svg?height=400&width=600&text=Premium+Jain+Paneer+Butter+Masala",
-    jainPalakPaneer: "/placeholder.svg?height=400&width=600&text=Premium+Jain+Palak+Paneer",
-    jainDalTadka: "/placeholder.svg?height=400&width=600&text=Premium+Jain+Dal+Tadka",
+    jainPaneerButterMasala: "https://loremflickr.com/600/400/paneer,curry,jain",
+    jainPalakPaneer: "https://loremflickr.com/600/400/palakpaneer,jain,indian",
+    jainDalTadka: "https://loremflickr.com/600/400/dal,jain,indian",
   },
 
   // ☕ HOT DRINKS - Premium Collection
   hotDrinks: {
-    tea: "/placeholder.svg?height=400&width=600&text=Premium+Tea",
-    filterCoffee: "/placeholder.svg?height=400&width=600&text=Premium+Filter+Coffee",
-    hotMilk: "/placeholder.svg?height=400&width=600&text=Premium+Hot+Milk",
+    tea: "https://loremflickr.com/600/400/tea,cup,indian",
+    filterCoffee: "https://loremflickr.com/600/400/coffee,mug,southindian",
+    hotMilk: "https://loremflickr.com/600/400/milk,hot,glass",
   },
 
   // 🧊 COLD DRINKS - Premium Collection
   coldDrinks: {
-    coldCoffee: "/placeholder.svg?height=400&width=600&text=Premium+Cold+Coffee",
-    coldCoffeeIcecream: "/placeholder.svg?height=400&width=600&text=Premium+Cold+Coffee+Ice+Cream",
-    lassi: "/placeholder.svg?height=400&width=600&text=Premium+Lassi",
-    buttermilkMasala: "/placeholder.svg?height=400&width=600&text=Premium+Buttermilk+Masala",
+    coldCoffee: "https://loremflickr.com/600/400/coffee,iced,glass",
+    coldCoffeeIcecream: "https://loremflickr.com/600/400/coffee,icecream,glass",
+    lassi: "https://loremflickr.com/600/400/lassi,yogurt,glass",
+    buttermilkMasala: "https://loremflickr.com/600/400/buttermilk,indian,glass",
   },
 
   // 🧃 JUICES - Premium Collection
   juices: {
-    mangoJuice: "/placeholder.svg?height=400&width=600&text=Premium+Mango+Juice",
-    watermelonJuice: "/placeholder.svg?height=400&width=600&text=Premium+Watermelon+Juice",
-    pineappleJuice: "/placeholder.svg?height=400&width=600&text=Premium+Pineapple+Juice",
+    mangoJuice: "https://loremflickr.com/600/400/juice,mango,glass",
+    watermelonJuice: "https://loremflickr.com/600/400/juice,watermelon,glass",
+    pineappleJuice: "https://loremflickr.com/600/400/juice,pineapple,glass",
   },
 
   // 🍰 DESSERTS - Premium Collection
   desserts: {
-    gulabJamun: "/placeholder.svg?height=400&width=600&text=Premium+Gulab+Jamun",
-    gulabJamunIcecream: "/placeholder.svg?height=400&width=600&text=Premium+Gulab+Jamun+Ice+Cream",
-    iceVanilla: "/placeholder.svg?height=400&width=600&text=Premium+Vanilla+Ice+Cream",
-    iceChocolate: "/placeholder.svg?height=400&width=600&text=Premium+Chocolate+Ice+Cream",
+    gulabJamun: "https://loremflickr.com/600/400/gulabjamun,sweet,indian",
+    gulabJamunIcecream: "https://loremflickr.com/600/400/gulabjamun,icecream,indian",
+    iceVanilla: "https://loremflickr.com/600/400/icecream,vanilla,scoop",
+    iceChocolate: "https://loremflickr.com/600/400/icecream,chocolate,scoop",
   },
-}
+
+  // 🍗 NON-VEG SPECIALS - Premium Collection
+  nonVeg: {
+    chickenCurry: "https://loremflickr.com/600/400/chickencurry,indian,food",
+    chickenFry: "https://loremflickr.com/600/400/friedchicken,indian,food",
+    muttonBhakri: "https://loremflickr.com/600/400/mutton,curry,indian",
+    fishCurry: "https://loremflickr.com/600/400/fishcurry,indian,food",
+    fishFry: "https://loremflickr.com/600/400/fishfry,indian,food",
+    eggBhurji: "https://loremflickr.com/600/400/eggbhurji,scrambled,eggs",
+  },
+
+  // 🍚 BIRYANI - Premium Collection
+  biryani: {
+    chickenBiryani: "https://loremflickr.com/600/400/chicken,biryani,indian",
+    paneerBiryani: "https://loremflickr.com/600/400/paneer,biryani,indian",
+    vegBiryani: "https://loremflickr.com/600/400/vegetable,biryani,indian",
+  },
+};
 
 // 🎯 FEATURED DISHES (Homepage) - Premium Collection
 export const FEATURED_DISHES = {
-  misalPav: "/placeholder.svg?height=200&width=200&text=Premium+Misal+Pav",
-  puranPoli: "/placeholder.svg?height=200&width=200&text=Premium+Puran+Poli",
-  vadaPav: "/placeholder.svg?height=200&width=200&text=Premium+Vada+Pav",
-  modak: "/placeholder.svg?height=200&width=200&text=Premium+Modak",
-  masalaDosa: "/placeholder.svg?height=200&width=200&text=Premium+Masala+Dosa",
-}
+  misalPav: "https://loremflickr.com/400/400/misal,indian,food",
+  puranPoli: "https://loremflickr.com/400/400/roti,sweet,indian",
+  vadaPav: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&h=400&fit=crop",
+  modak: "https://loremflickr.com/400/400/modak,sweet,indian",
+  masalaDosa: "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=400&h=400&fit=crop",
+};
 
 // 🎁 SPECIAL OFFERS IMAGES - Premium Collection
 export const OFFERS_IMAGES = {
-  instagram: "/placeholder.svg?height=400&width=600&text=Premium+Instagram+Follow",
-  weekendSpecial: "/placeholder.svg?height=400&width=600&text=Premium+Weekend+Special",
-  students: "/placeholder.svg?height=400&width=600&text=Premium+Student+Discount",
-  defence: "/placeholder.svg?height=400&width=600&text=Premium+Defence+Personnel",
-}
+  instagram: "https://loremflickr.com/600/400/instagram,socialmedia,mobile",
+  weekendSpecial: "https://loremflickr.com/600/400/discount,special,offer",
+  students: "https://loremflickr.com/600/400/students,university,discount",
+  defence: "https://loremflickr.com/600/400/military,honor,discount",
+};
 
 // 📸 GALLERY IMAGES - Premium Collection
 export const GALLERY_IMAGES = [
-  "/placeholder.svg?height=300&width=400&text=Premium+Food+Image+1",
-  "/placeholder.svg?height=300&width=400&text=Premium+Food+Image+2",
-  "/placeholder.svg?height=300&width=400&text=Premium+Food+Image+3",
-  "/placeholder.svg?height=300&width=400&text=Premium+Food+Image+4",
-  "/placeholder.svg?height=300&width=400&text=Premium+Food+Image+5",
-  "/placeholder.svg?height=300&width=400&text=Premium+Food+Image+6",
-  "/placeholder.svg?height=300&width=400&text=Premium+Food+Image+7",
-  "/placeholder.svg?height=300&width=400&text=Premium+Food+Image+8",
-]
+  "https://loremflickr.com/400/300/indianfood,delicious,1",
+  "https://loremflickr.com/400/300/indianfood,delicious,2",
+  "https://loremflickr.com/400/300/indianfood,delicious,3",
+  "https://loremflickr.com/400/300/indianfood,delicious,4",
+  "https://loremflickr.com/400/300/indianfood,delicious,5",
+  "https://loremflickr.com/400/300/indianfood,delicious,6",
+  "https://loremflickr.com/400/300/indianfood,delicious,7",
+  "https://loremflickr.com/400/300/indianfood,delicious,8",
+];
 
 // 🔧 HELPER FUNCTION TO GET MENU IMAGES
 // =====================================
 // This function helps retrieve menu images easily
 export function getMenuImage(category: string, itemId: string): string {
-  const categoryImages = MENU_IMAGES[category as keyof typeof MENU_IMAGES] as Record<string, string>
-  return categoryImages?.[itemId] || "/placeholder.svg?height=400&width=600&text=Premium+No+Image"
+  const categoryImages = MENU_IMAGES[category as keyof typeof MENU_IMAGES] as Record<string, string>;
+  return categoryImages?.[itemId] || "/placeholder.svg?height=400&width=600&text=Premium+No+Image";
 }
-
-// 📝 PREMIUM USAGE EXAMPLES:
-// ==========================
-//
-// 1. To replace the restaurant logo:
-//    Change: logo: "/images/hotel-logo.png"
-//    To: logo: "/images/premium-logo.jpg"
-//
-// 2. To replace a menu item image:
-//    Change: poha: "/placeholder.svg?height=400&width=600&text=Premium+Poha"
-//    To: poha: "/images/menu/premium-poha-photo.jpg"
-//
-// 3. To replace hero background:
-//    Change: heroBackground: "/placeholder.svg?height=1080&width=1920&text=Luxury+Traditional+Restaurant"
-//    To: heroBackground: "/images/premium-restaurant-interior.jpg"
-//
-// 💡 PREMIUM PRO TIPS:
-// - Use high-resolution images (minimum 2x the display size)
-// - Maintain consistent lighting and color grading
-// - Professional food styling with proper garnishing
-// - Use premium tableware and presentation
-// - Compress images while maintaining quality for faster loading
-
-// 🚀 PREMIUM QUICK START CHECKLIST:
-// ☐ 1. Create /public/images/ folder structure
-// ☐ 2. Create premium subfolders: /menu/, /gallery/, /offers/, /hero/
-// ☐ 3. Upload high-quality, professionally shot images
-// ☐ 4. Update the paths in this file
-// ☐ 5. Test image quality on different devices
-// ☐ 6. Save and refresh your premium website!

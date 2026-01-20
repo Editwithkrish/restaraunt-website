@@ -6,6 +6,59 @@ import { Badge } from "@/components/ui/badge"
 import { Check, Filter, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+export interface FilterOption {
+  id: string
+  label: string
+  color: string
+}
+
+interface MenuFiltersProps {
+  availableFilters: FilterOption[]
+  onFilterChange: (filters: string[]) => void
+  className?: string
+}
+
+export default function MenuFilters({ availableFilters, onFilterChange, className }: MenuFiltersProps) {
+  const [activeFilters, setActiveFilters] = useState<string[]>([])
+
+  const toggleFilter = (filterId: string) => {
+    const newFilters = activeFilters.includes(filterId)
+      ? activeFilters.filter((id) => id !== filterId)
+      : [...activeFilters, filterId]
+
+    setActiveFilters(newFilters)
+    onFilterChange(newFilters)
+  }
+
+  const clearFilters = () => {
+    setActiveFilters([])
+    onFilterChange([])
+  }
+
+  const getFilterBadgeColor = (filterId: string) => {
+    const filter = availableFilters.find((f) => f.id === filterId)
+    return filter?.color || "bg-gray-100 text-gray-700 border-gray-200"
+  }
+
+  return (
+    <div className={cn("flex flex-wrap gap-3 items-center", className)}>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" className="h-10 border-2 border-primary/10 font-black uppercase tracking-widest text-xs rounded-xl hover:bg-primary hover:text-primary-foreground transition-all shadow-md">
+            <Filter className="mr-2 h-4 w-4" />
+            Filters
+            {activeFilters.length > 0 && (
+              <Badge className="ml-2 bg-primary text-primary-foreground h-5 w-5 p-0 flex items-center justify-center rounded-full text-[10px]">
                 {activeFilters.length}
               </Badge>
             )}

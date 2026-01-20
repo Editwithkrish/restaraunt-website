@@ -4,25 +4,29 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: 42 100% 98%;
-  --foreground: 19 68% 14%;
-  --card: 0 0% 100%;
-  --card-foreground: 19 68% 14%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 19 68% 14%;
-  --primary: 41 95% 56%; /* Logo Yellow #F9B826 */
-  --primary-foreground: 19 68% 14%; /* Dark Brown #3D1B0B */
-  --secondary: 151 54% 24%; /* Logo Green #1C5D3D */
-  --secondary-foreground: 42 95% 95%;
-  --muted: 42 20% 92%;
-  --muted-foreground: 19 30% 35%;
-  --accent: 17 75% 51%; /* Flower Orange #E25822 */
-  --accent-foreground: 42 100% 98%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 60 9.1% 97.8%;
-  --border: 41 40% 85%;
-  --input: 41 40% 85%;
-  --ring: 41 95% 56%;
+  --background: hsl(42 100% 98%);
+  --foreground: hsl(19 68% 14%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(19 68% 14%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(19 68% 14%);
+  --primary: hsl(41 95% 56%);
+  /* Logo Yellow #F9B826 */
+  --primary-foreground: hsl(19 68% 14%);
+  /* Dark Brown #3D1B0B */
+  --secondary: hsl(151 54% 24%);
+  /* Logo Green #1C5D3D */
+  --secondary-foreground: hsl(42 95% 95%);
+  --muted: hsl(42 20% 92%);
+  --muted-foreground: hsl(19 30% 35%);
+  --accent: hsl(17 75% 51%);
+  /* Flower Orange #E25822 */
+  --accent-foreground: hsl(42 100% 98%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(60 9.1% 97.8%);
+  --border: hsl(41 40% 85%);
+  --input: hsl(41 40% 85%);
+  --ring: hsl(41 95% 56%);
   --radius: 1.25rem;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -111,6 +115,30 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-maroon-50: #fef2f2;
+  --color-maroon-100: #fee2e2;
+  --color-maroon-200: #fecaca;
+  --color-maroon-300: #fca5a5;
+  --color-maroon-400: #f87171;
+  --color-maroon-500: #ef4444;
+  --color-maroon-600: #dc2626;
+  --color-maroon-700: #b91c1c;
+  --color-maroon-800: #991b1b;
+  --color-maroon-900: #7f1d1d;
+  --color-maroon-950: #450a0a;
+
+  --color-saffron-50: #fff7ed;
+  --color-saffron-100: #ffedd5;
+  --color-saffron-200: #fed7aa;
+  --color-saffron-300: #fdba74;
+  --color-saffron-400: #fb923c;
+  --color-saffron-500: #f97316;
+  --color-saffron-600: #ea580c;
+  --color-saffron-700: #c2410c;
+  --color-saffron-800: #9a3412;
+  --color-saffron-900: #7c2d12;
+  --color-saffron-950: #431407;
 }
 
 @layer base {
@@ -121,13 +149,16 @@
 
 /* Premium animations */
 @keyframes bellRing {
+
   0%,
   100% {
     transform: rotate(0deg);
   }
+
   25% {
     transform: rotate(10deg);
   }
+
   75% {
     transform: rotate(-10deg);
   }

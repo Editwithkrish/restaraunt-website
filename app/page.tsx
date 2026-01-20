@@ -23,6 +23,7 @@ import {
   Utensils,
   Crown,
   ChevronDown,
+  Star,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -67,15 +68,17 @@ export default function Home() {
   const allMenuItems = Object.values(menuData).flat()
   const searchResults = searchQuery.trim().length > 1
     ? allMenuItems.filter(item => {
+      if (!item) return false;
       const lowerQuery = searchQuery.toLowerCase();
+
       // If searching for "bestseller", show items marked as popular
       if (lowerQuery === "bestseller") return (item as any).isPopular;
 
-      return (
-        item.name.toLowerCase().includes(lowerQuery) ||
-        item.englishName?.toLowerCase().includes(lowerQuery) ||
-        item.description?.toLowerCase().includes(lowerQuery)
-      );
+      const nameMatch = item.name?.toLowerCase().includes(lowerQuery);
+      const englishNameMatch = (item as any).englishName?.toLowerCase().includes(lowerQuery);
+      const descriptionMatch = (item as any).description?.toLowerCase().includes(lowerQuery);
+
+      return nameMatch || englishNameMatch || descriptionMatch;
     })
     : []
 
@@ -121,162 +124,226 @@ export default function Home() {
 
       {/* App Header (Traditional Premium) */}
       <motion.header
-        className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b-4 border-secondary h-20 flex items-center"
+        className="fixed top-0 w-full z-50 bg-primary shadow-2xl border-b-4 border-maroon-900/10 h-24 flex items-center transition-all duration-500"
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
           <Link href="/">
-            <div className="w-36 h-14 md:w-44 md:h-16 relative transition-transform active:scale-95">
+            <div className="w-40 h-16 md:w-56 md:h-20 relative transition-transform active:scale-95 hover:scale-105 duration-300">
               <Image src={BRANDING_IMAGES.logo} alt="Suruchi's Kitchen Logo" fill className="object-contain" priority />
             </div>
           </Link>
 
-          <div className="flex items-center gap-3 md:gap-6">
-            <div className="hidden lg:flex items-center gap-8 mr-4">
+          <div className="flex items-center gap-3 md:gap-8">
+            <div className="hidden xl:flex items-center gap-10 mr-4">
               {navItems.map((item) => (
-                <Link key={item.name} href={item.href} className="text-[10px] font-black text-gray-400 hover:text-primary transition-colors uppercase tracking-[0.2em]">
+                <Link key={item.name} href={item.href} className="text-xs font-black text-maroon-900 hover:text-maroon-950 transition-all uppercase tracking-[0.3em] relative group">
                   {t(`nav.${item.name}`)}
+                  <span className="absolute -bottom-2 left-0 w-0 h-1 bg-maroon-950 transition-all group-hover:w-full" />
                 </Link>
               ))}
             </div>
-            <a
-              href="tel:7417007124"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2.5 md:px-6 md:py-3 rounded-xl font-black uppercase text-[10px] md:text-xs tracking-widest shadow-xl shadow-primary/20 transition-all flex items-center gap-2 border-b-4 border-primary/20 active:translate-y-1 active:border-b-0"
-            >
-              <Phone className="h-4 w-4 fill-current" />
-              <span>ORDER</span>
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="tel:7417007124"
+                className="bg-maroon-900 hover:bg-maroon-950 text-white px-5 py-3 md:px-8 md:py-4 rounded-2xl font-black uppercase text-[10px] md:text-xs tracking-[0.2em] shadow-2xl shadow-maroon-900/30 transition-all flex items-center gap-3 active:translate-y-1"
+              >
+                <Phone className="h-4 w-4 fill-current" />
+                <span className="hidden sm:inline font-black">CALL TO ORDER</span>
+                <span className="sm:hidden font-black">ORDER</span>
+              </a>
+            </div>
           </div>
         </div>
       </motion.header>
 
       {/* Discovery Hero Section */}
-      <section className="pt-28 pb-12 bg-primary relative overflow-hidden">
-        {/* Logo Theme Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-          <div className="absolute top-10 left-10 w-32 h-32 border-8 border-secondary rounded-full" />
-          <div className="absolute bottom-10 right-10 w-48 h-48 border-8 border-accent rounded-full" />
-        </div>
+      <section className="pt-40 pb-24 md:pb-32 bg-primary relative overflow-hidden">
+        {/* Intricate Background Patterns */}
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none select-none"
+          style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/pinstripe.png")' }} />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-maroon-900/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 -right-48 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-10 md:mb-14"
-            >
-              <h1 className="text-5xl md:text-8xl lg:text-9xl font-black text-gray-900 tracking-tighter leading-[0.85] mb-8 uppercase drop-shadow-sm">
-                TASTE THE <br className="md:hidden" /><span className="text-secondary underline decoration-primary decoration-4 underline-offset-8">TRADITION</span>
-              </h1>
-              <p className="text-base md:text-2xl font-black text-gray-900/80 uppercase tracking-[0.15em] max-w-2xl mx-auto leading-relaxed">
-                Explore our menu and bring home the <span className="text-secondary font-black border-b-4 border-secondary/20">authentic flavors</span> of Pune.
-              </p>
-            </motion.div>
-
-            {/* Search Bar */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
-              className="relative mb-10 group max-w-2xl mx-auto"
-            >
-              <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none">
-                <Search className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
-              </div>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search our delicious menu..."
-                className="w-full bg-white border-4 border-secondary/20 rounded-[2.5rem] py-5 pl-16 pr-6 text-gray-900 font-black focus:outline-none focus:ring-8 focus:ring-secondary/5 focus:border-secondary transition-all shadow-2xl h-20 text-xl placeholder:text-gray-400"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute inset-y-0 right-6 flex items-center text-gray-400 hover:text-secondary group/clear"
-                >
-                  <span className="text-[10px] font-black uppercase tracking-widest mr-2 text-secondary opacity-0 group-hover/clear:opacity-100 transition-opacity">Clear</span>
-                  <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center text-secondary font-black text-xl">×</div>
-                </button>
-              )}
-            </motion.div>
-
-            {/* Discovery Grid/Bubbles */}
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3 mt-8">
-              {[
-                { label: "Bestsellers", icon: <Flame className="h-5 w-5" />, color: "bg-white text-gray-900 border-2 border-gray-100", query: "Bestseller" },
-                { label: "Premium Biryani", icon: <UtensilsCrossed className="h-5 w-5" />, color: "bg-secondary text-white shadow-lg shadow-secondary/20", query: "Biryani" },
-                { label: "Non-Veg", icon: <UtensilsCrossed className="h-5 w-5" />, color: "bg-gray-900 text-white shadow-lg shadow-gray-900/20", query: "Chicken" },
-                { label: "Veg Specials", icon: <Leaf className="h-5 w-5" />, color: "bg-white text-green-700 border-2 border-green-100", query: "Veg" },
-                { label: "Spicy", icon: <Zap className="h-5 w-5" />, color: "bg-accent text-white shadow-lg shadow-accent/20", query: "Spicy" },
-              ].map((item, i) => (
-                <motion.button
-                  key={item.label}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            <div className="text-center lg:text-left">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="space-y-10"
+              >
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + (i * 0.1) }}
-                  onClick={() => setSearchQuery(item.query)}
-                  className={cn(
-                    "flex items-center gap-2 px-4 py-2.5 md:px-5 md:py-3 rounded-2xl shadow-md transition-all hover:scale-105 active:scale-95 group",
-                    item.color
-                  )}
+                  transition={{ delay: 0.3 }}
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-white shadow-xl rounded-2xl text-maroon-900 font-black uppercase text-[10px] md:text-xs tracking-[0.3em] border-2 border-maroon-900/5"
                 >
-                  <span className="group-hover:rotate-12 transition-transform">{item.icon}</span>
-                  <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest">{item.label}</span>
-                </motion.button>
-              ))}
+                  <div className="h-3 w-3 bg-secondary rounded-full animate-pulse" />
+                  <span>The Pride of Dhanori, Pune</span>
+                </motion.div>
+
+                <h1 className="text-6xl md:text-8xl lg:text-[7rem] xl:text-[9rem] font-black text-maroon-900 tracking-tighter leading-[0.85] uppercase drop-shadow-2xl">
+                  TASTE THE <br />
+                  <span className="text-maroon-900 italic relative inline-block font-serif tracking-normal mt-4">
+                    Tradition
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: "110%" }}
+                      transition={{ delay: 0.8, duration: 1.2, ease: "easeInOut" }}
+                      className="absolute -bottom-4 -left-[5%] h-6 bg-secondary/30 -z-10 rounded-full blur-[2px]"
+                    />
+                  </span>
+                </h1>
+
+                <p className="text-lg md:text-2xl font-bold text-maroon-900/80 uppercase tracking-[0.2em] max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans mt-4">
+                  Savor the <span className="text-maroon-900 border-b-8 border-secondary/30 pb-1">True Magic</span> of Authentic Cooking.
+                </p>
+
+                {/* Enhanced Search Bar */}
+                <div className="relative group max-w-xl mx-auto lg:mx-0 transform transition-all duration-500 hover:scale-[1.02]">
+                  <div className="absolute inset-y-0 left-8 flex items-center pointer-events-none">
+                    <Search className="h-8 w-8 text-maroon-900 group-focus-within:text-secondary transition-colors" />
+                  </div>
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="WANT TO TRY SOMETHING?"
+                    className="w-full bg-white border-4 border-maroon-900/10 rounded-[2.5rem] py-7 pl-20 pr-8 text-maroon-900 font-black focus:outline-none focus:ring-[1rem] focus:ring-maroon-900/5 transition-all h-20 text-xl placeholder:text-gray-400 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)]"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="absolute inset-y-0 right-8 flex items-center text-gray-400 hover:text-maroon-900 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-900 font-black text-2xl shadow-inner">×</div>
+                    </button>
+                  )}
+                </div>
+
+                <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                  {[
+                    { label: "Bestsellers", query: "Bestseller", color: "bg-maroon-900 text-white shadow-maroon-900/20" },
+                    { label: "Biryani", query: "Biryani", color: "bg-secondary text-white shadow-secondary/20" },
+                    { label: "Non-Veg", query: "Chicken", color: "bg-white text-maroon-900 border-2 border-maroon-900/10 shadow-xl" },
+                  ].map((item, i) => (
+                    <button
+                      key={item.label}
+                      onClick={() => setSearchQuery(item.query)}
+                      className={cn(
+                        "px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:translate-y-[-4px] transition-all active:scale-95 border-b-4 border-black/10",
+                        item.color
+                      )}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full aspect-square max-w-[500px] xl:max-w-[650px] mx-auto group"
+            >
+              {/* Multi-layered decorative backgrounds */}
+              <div className="absolute inset-0 bg-maroon-900/5 rounded-full scale-110 blur-3xl animate-pulse" />
+              <div className="absolute inset-0 border-8 border-dashed border-white/40 rounded-full animate-[spin_40s_linear_infinite]" />
+
+              {/* Main Hero Thali Image Container */}
+              <div className="relative w-full h-full rounded-full border-[2rem] border-white shadow-[0_80px_100px_-30px_rgba(0,0,0,0.4)] overflow-hidden transition-all duration-700 group-hover:scale-[1.03] group-hover:shadow-[0_100px_120px_-40px_rgba(0,0,0,0.5)]">
+                <Image
+                  src={HERO_IMAGES.heroBackground}
+                  alt="Premium Indian Thali"
+                  fill
+                  className="object-cover transition-transform duration-[2s] group-hover:scale-110"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Floating tags */}
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                className="absolute -top-12 -right-4 bg-white p-8 rounded-[3rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.25)] border-8 border-primary/20 z-20 hidden md:block"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <Heart className="h-6 w-6 text-primary" />
+                  <p className="text-[12px] font-black uppercase tracking-[0.2em] text-maroon-900/50">Naturally</p>
+                </div>
+                <p className="text-4xl font-black text-maroon-900 tracking-tighter leading-none">Homemade</p>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 15, 0] }}
+                transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, delay: 2.5, ease: "easeInOut" }}
+                className="absolute -bottom-4 -left-12 bg-maroon-900 p-8 rounded-[3rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.35)] border-8 border-white/10 z-20 hidden md:block"
+              >
+                <p className="text-[12px] font-black uppercase tracking-[0.2em] text-white/50 text-center mb-2">Serving Love</p>
+                <div className="flex items-center gap-3 text-white">
+                  <Star className="h-6 w-6 text-primary fill-current" />
+                  <p className="text-3xl font-black tracking-tighter leading-none italic font-serif">Every Day</p>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Dynamic Search Results Section */}
       <AnimatePresence>
-        {searchQuery.trim().length > 1 && (
-          <motion.section
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="bg-background border-b border-secondary/10 overflow-hidden"
-          >
-            <div className="container mx-auto px-4 py-12">
-              <div className="flex items-center justify-between mb-8 border-b-2 border-primary/20 pb-4">
-                <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">
-                  Results for "<span className="text-primary">{searchQuery}</span>"
-                </h2>
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-colors flex items-center gap-2"
-                >
-                  Close Results <span className="text-lg">×</span>
-                </button>
-              </div>
-
-              {searchResults.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {searchResults.map((item) => (
-                    <motion.div
-                      key={item.id}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                    >
-                      <MenuItemCard {...item} />
-                    </motion.div>
-                  ))}
-                </div>
-              ) : (
-                <div className="py-20 text-center bg-white rounded-[3rem] border-4 border-dashed border-primary/20">
-                  <p className="text-gray-400 font-black uppercase tracking-widest text-lg">No authentic dishes found matching your search.</p>
+        {
+          searchQuery.trim().length > 1 && (
+            <motion.section
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="bg-background border-b border-secondary/10 overflow-hidden"
+            >
+              <div className="container mx-auto px-4 py-12">
+                <div className="flex items-center justify-between mb-8 border-b-2 border-primary/20 pb-4">
+                  <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">
+                    Results for "<span className="text-primary">{searchQuery}</span>"
+                  </h2>
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="mt-6 bg-primary text-primary-foreground px-8 py-3 rounded-xl font-black uppercase text-xs tracking-[0.2em]"
+                    className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-colors flex items-center gap-2"
                   >
-                    Clear Search
+                    Close Results <span className="text-lg">×</span>
                   </button>
                 </div>
-              )}
-            </div>
-          </motion.section>
-        )}
+
+                {searchResults.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {searchResults.map((item) => (
+                      <motion.div
+                        key={item.id}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                      >
+                        <MenuItemCard {...item} />
+                      </motion.div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="py-20 text-center bg-white rounded-[3rem] border-4 border-dashed border-primary/20">
+                    <p className="text-gray-400 font-black uppercase tracking-widest text-lg">No authentic dishes found matching your search.</p>
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="mt-6 bg-primary text-primary-foreground px-8 py-3 rounded-xl font-black uppercase text-xs tracking-[0.2em]"
+                    >
+                      Clear Search
+                    </button>
+                  </div>
+                )}
+              </div>
+            </motion.section>
+          )
+        }
       </AnimatePresence>
 
       {/* Menu Section */}
@@ -289,18 +356,19 @@ export default function Home() {
             icon={<Utensils className="h-8 w-8 text-white" />}
           />
 
-          <Tabs defaultValue="maharashtrian" className="mt-4">
+          <Tabs defaultValue="combos" className="mt-4">
             <div className="sticky top-16 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100 -mx-4 px-4 sm:mx-0 sm:px-0">
               <div className="overflow-x-auto no-scrollbar scroll-smooth">
                 <TabsList className="h-14 flex justify-start gap-8 bg-transparent w-max border-none px-4">
                   {[
-                    { value: "maharashtrian", label: "Breakfast Specials" },
-                    { value: "mainCourse", label: "Veg Specials" },
-                    { value: "nonVeg", label: "Non-Veg" },
-                    { value: "biryani", label: "Premium Biryani" },
-                    { value: "thali", label: "Authentic Thali" },
+                    { value: "combos", label: "Combos & Thalis" },
+                    { value: "vegSabzi", label: "Veg & Paneer" },
+                    { value: "nonVegSpecials", label: "Non-Veg Specials" },
+                    { value: "riceChinese", label: "Rice & Chinese" },
                     { value: "southIndian", label: "South Indian" },
-                    { value: "beverages", label: "Beverages" },
+                    { value: "snacks", label: "Snacks & Fries" },
+                    { value: "breads", label: "Roti & Sides" },
+                    { value: "beverages", label: "Soups & Drinks" },
                   ].map((tab) => (
                     <TabsTrigger
                       key={tab.value}
@@ -322,26 +390,29 @@ export default function Home() {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <TabsContent value="maharashtrian" className="mt-0">
-                    <MenuCategory items={menuData.maharashtrian} title={t("menu.maharashtrian")} />
+                  <TabsContent value="combos" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.combos} title="Chef's Special Combo Thalis" />
                   </TabsContent>
-                  <TabsContent value="mainCourse" className="mt-0">
-                    <MenuCategory items={menuData.mainCourse} title={t("menu.mainCourse")} />
+                  <TabsContent value="vegSabzi" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.vegSabzi} title="Vegetarian & Paneer Delights" />
                   </TabsContent>
-                  <TabsContent value="nonVeg" className="mt-0">
-                    <MenuCategory items={menuData.nonVeg} title={t("menu.nonVeg")} />
+                  <TabsContent value="nonVegSpecials" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.nonVegSpecials} title="Chicken & Egg Specials" />
                   </TabsContent>
-                  <TabsContent value="biryani" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.biryani} title="Premium Biryani Range" />
-                  </TabsContent>
-                  <TabsContent value="thali" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.thali} title="Authentic Thali Experience" />
+                  <TabsContent value="riceChinese" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.riceChinese} title="Aromatic Rice & Indo-Chinese" />
                   </TabsContent>
                   <TabsContent value="southIndian" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
                     <MenuCategory items={menuData.southIndian} title="South Indian Favorites" />
                   </TabsContent>
+                  <TabsContent value="snacks" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.snacks} title="Delicious Snacks & Fries" />
+                  </TabsContent>
+                  <TabsContent value="breads" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.breads} title="Fresh Roti, Bhakari & Sides" />
+                  </TabsContent>
                   <TabsContent value="beverages" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.beverages} title="Refreshing Beverages" />
+                    <MenuCategory items={menuData.beverages} title="Refreshing Beverages & Soups" />
                   </TabsContent>
                 </motion.div>
               </AnimatePresence>
@@ -835,14 +906,14 @@ export default function Home() {
       </section>
 
       {/* App Footer */}
-      <footer className="bg-gray-900 text-white pt-20 pb-40">
+      <footer className="bg-maroon-950 text-white pt-20 pb-40 border-t-8 border-secondary/20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="space-y-8">
               <div className="w-48 h-20 relative px-2 py-2 bg-white rounded-2xl">
                 <Image src={BRANDING_IMAGES.logo} alt="Suruchi Logo" fill className="object-contain" />
               </div>
-              <p className="text-gray-400 text-xs leading-relaxed uppercase font-black tracking-widest">Authentic Home-Style Cooking & Premium Catering Services. Serving traditional Puneri flavors.</p>
+              <p className="text-white/60 text-xs leading-relaxed uppercase font-black tracking-widest">Authentic Home-Style Cooking & Premium Catering Services. Serving traditional Puneri flavors.</p>
               <div className="flex gap-4">
                 <a href="#" className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center hover:bg-primary transition-colors hover:text-primary-foreground border-b-4 border-gray-700">
                   <Instagram className="h-6 w-6" />
@@ -883,8 +954,8 @@ export default function Home() {
                   <span className="text-xl font-black uppercase tracking-tighter group-hover:text-primary transition-colors">7417007124</span>
                 </a>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center text-gray-400 flex-shrink-0 border-b-4 border-gray-700"><MapPin className="h-6 w-6" /></div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 leading-loose">
+                  <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-primary flex-shrink-0 border-b-4 border-white/5"><MapPin className="h-6 w-6" /></div>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-white/70 leading-loose">
                     Kohinoor Vivacity,<br />
                     Dhanori, Pune 411015
                   </span>
@@ -893,8 +964,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800/50 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-[8px] font-black text-gray-600 uppercase tracking-[0.3em]">&copy; {new Date().getFullYear()} Suruchi's Kitchen & Caterings. Traditional Excellence.</p>
+          <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-[8px] font-black text-white/40 uppercase tracking-[0.3em]">&copy; {new Date().getFullYear()} Suruchi's Kitchen & Caterings. Traditional Excellence.</p>
             <div className="flex items-center gap-3">
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-[10px] font-black uppercase tracking-widest text-primary">Handcrafted with Tradition</span>
@@ -903,23 +974,10 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* Floating Call Action Button */}
-      <motion.a
-        href="tel:7417007124"
-        initial={{ scale: 0, y: 100 }}
-        animate={{ scale: 1, y: 0 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-24 right-6 z-50 md:bottom-8 md:right-8 bg-secondary text-white w-16 h-16 rounded-2xl shadow-2xl flex items-center justify-center border-b-4 border-secondary/50 group"
-      >
-        <Phone className="h-8 w-8 group-hover:animate-bell" />
-        <span className="absolute right-full mr-4 bg-gray-900 text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-          order on call
-        </span>
-      </motion.a>
+
 
       <ScrollToTop />
       <BottomNav />
-    </div>
+    </div >
   )
 }
