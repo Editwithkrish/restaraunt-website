@@ -1,114 +1,165 @@
 import { MENU_IMAGES } from "./image-config"
 
 export const menuData = {
-  combos: [
-    { id: "veg-combo-thali", name: "Veg Combo Thali", price: "₹130", description: "2 Veg Sabzi, Dal / Curry, chapati (2), Rice, Papad", image: MENU_IMAGES.thali.maharashtrianThali, isVeg: true, isPopular: true },
-    { id: "paneer-combo-thali", name: "Paneer Combo Thali", price: "₹160", description: "Paneer Sabzi, Dal Fry, chapati (2), Rice, Papad", image: MENU_IMAGES.thali.jainThali, isVeg: true, isPopular: true },
-    { id: "chicken-combo-thali", name: "Chicken Combo Thali", price: "₹190", description: "Chicken Curry, Dal Fry, chapati (2), Rice, Papad", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false, isPopular: true },
-    { id: "egg-combo-thali", name: "Egg Combo Thali", price: "₹150", description: "Egg Curry, Dal Fry, chapati (2), Rice, Papad", image: MENU_IMAGES.nonVeg.eggBhurji, isVeg: false, isPopular: true },
-    { id: "veg-thali-basic", name: "Veg Thali", price: "₹80", description: "Standard Vegetarian Thali", image: MENU_IMAGES.thali.maharashtrianThali, isVeg: true },
-    { id: "veg-special-thali", name: "Veg Special Thali", price: "₹130", description: "Special Vegetarian Thali with extra sides", image: MENU_IMAGES.thali.maharashtrianThali, isVeg: true },
-    { id: "egg-thali", name: "Egg Thali", price: "₹130", description: "Egg curry based thali", image: MENU_IMAGES.nonVeg.eggBhurji, isVeg: false },
-    { id: "chicken-thali", name: "Chicken Thali", price: "₹150", description: "Chicken curry based thali", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
+  // 🍱 THALIS
+  thalis: [
+    { id: "veg-thali", name: "Veg Thali", price: "₹80", description: "Rice, 2 Chapati, 2 Sabji, Dal, Salad", image: MENU_IMAGES.thali.maharashtrianThali, isVeg: true, isPopular: true },
+    { id: "special-veg-thali", name: "Special Veg Thali", price: "₹130", description: "Rice, 3 Chapati, 2 Sabji (Paneer/Mix Veg), Dal, Papad, Dahi, Salad, Gulab Jamun", image: MENU_IMAGES.thali.jainThali, isVeg: true, isPopular: true },
+    { id: "non-veg-thali", name: "Non-Veg Thali", price: "₹150", description: "Rice, 3 Chapati, Chicken Gravy", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
+    { id: "special-non-veg-thali", name: "Special Non-Veg Thali", price: "₹200", description: "Rice, 3 Chapati, 2 Chicken Dish (Gravy/Dry), Papad, Salad, Gulab Jamun", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false, isPopular: true },
   ],
-  vegSabzi: [
-    { id: "veg-65", name: "Veg 65", price: "₹120", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true, isPopular: true },
-    { id: "veg-kadai", name: "Veg Kadai", price: "₹150", image: MENU_IMAGES.mainCourse.vegKadhai, isVeg: true, isPopular: true },
-    { id: "veg-maratha", name: "Veg Maratha", price: "₹130", image: MENU_IMAGES.mainCourse.vegKolhapuri, isVeg: true },
-    { id: "veg-jaipuri", name: "Veg Jaipuri", price: "₹130", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
-    { id: "veg-handi", name: "Veg Handi", price: "₹160 / ₹220", description: "Half / Full", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true, isPopular: true },
-    { id: "bhendi-masala", name: "Bhendi Masala", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
-    { id: "aloo-gobi", name: "Aloo Gobi", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
-    { id: "mix-veg-sabzi", name: "Mix Veg", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true, isPopular: true },
-    { id: "dum-aloo-punjabi", name: "Dum Aloo Punjabi", price: "₹100", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
-    { id: "mushroom-masala", name: "Mushroom Masala", price: "₹100", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true, isPopular: true },
-    { id: "rajma-masala", name: "Rajma Masala", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
-    { id: "chana-masala", name: "Chana Masala", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true, isPopular: true },
-    { id: "sev-bhaji", name: "Sev Bhaji", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true, isPopular: true },
-    { id: "aloo-mutter", name: "Aloo Mutter", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
-    { id: "palak-lasuni", name: "Palak Lasuni", price: "₹80", image: MENU_IMAGES.mainCourse.palakPaneer, isVeg: true },
-    { id: "paneer-butter-masala-sweet", name: "Paneer Butter Masala (Sweet)", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true, isPopular: true },
-    { id: "paneer-masala", name: "Paneer Masala", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
-    { id: "paneer-kadai", name: "Paneer Kadai", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true, isPopular: true },
-    { id: "paneer-tikka-masala", name: "Paneer Tikka Masala", price: "₹150", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true, isPopular: true },
-    { id: "paneer-bhurji", name: "Paneer Bhurji", price: "₹150", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
-    { id: "paneer-handi", name: "Paneer Handi", price: "₹160 / ₹220", description: "Half / Full", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true, isPopular: true },
-    { id: "palak-paneer-main", name: "Palak Paneer", price: "₹120", image: MENU_IMAGES.mainCourse.palakPaneer, isVeg: true },
-    { id: "paneer-mutter-masala", name: "Paneer Mutter Masala", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
-  ],
-  nonVegSpecials: [
-    { id: "chicken-masala", name: "Chicken Masala", price: "₹120", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false, isPopular: true },
-    { id: "chicken-do-pyaza", name: "Chicken Do Pyaza", price: "₹180", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
-    { id: "chicken-curry-main", name: "Chicken Curry", price: "₹130", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
-    { id: "chicken-sukka", name: "Chicken Sukka (Dry)", price: "₹140", image: MENU_IMAGES.nonVeg.chickenFry, isVeg: false, isPopular: true },
-    { id: "chicken-handi", name: "Chicken Handi", price: "₹300 / ₹500", description: "Half / Full", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false, isPopular: true },
-    { id: "egg-masala", name: "Egg Masala", price: "₹100", image: MENU_IMAGES.nonVeg.eggBhurji, isVeg: false },
-    { id: "egg-curry-main", name: "Egg Curry", price: "₹80", image: MENU_IMAGES.nonVeg.eggBhurji, isVeg: false },
-    { id: "egg-bhurji-main", name: "Egg Bhurji", price: "₹60", image: MENU_IMAGES.nonVeg.eggBhurji, isVeg: false, isPopular: true },
-    { id: "chicken-fry-main", name: "Chicken Fry", price: "₹130", image: MENU_IMAGES.nonVeg.chickenFry, isVeg: false },
-  ],
-  riceChinese: [
-    { id: "steam-rice", name: "Steam Rice", price: "₹50 / ₹60", description: "Half / Full", image: MENU_IMAGES.rice.jeeraRice, isVeg: true },
-    { id: "jeera-rice-main", name: "Jeera Rice", price: "₹70", image: MENU_IMAGES.rice.jeeraRice, isVeg: true },
-    { id: "masala-rice-main", name: "Masala Rice", price: "₹80", image: MENU_IMAGES.rice.vegPulao, isVeg: true, isPopular: true },
-    { id: "veg-pulav-main", name: "Veg Pulav", price: "₹80", image: MENU_IMAGES.rice.vegPulao, isVeg: true, isPopular: true },
-    { id: "paneer-pulav-main", name: "Paneer Pulav", price: "₹80", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
-    { id: "dal-khichadi-main", name: "Dal Khichadi", price: "₹80", image: MENU_IMAGES.rice.curdRice, isVeg: true, isPopular: true },
-    { id: "dal-khichadi-tadka", name: "Dal Khichadi with Tadka", price: "₹90", image: MENU_IMAGES.rice.curdRice, isVeg: true },
-    { id: "chicken-pulav-main", name: "Chicken Pulav", price: "₹150", image: MENU_IMAGES.rice.vegBiryani, isVeg: false, isPopular: true },
-    { id: "veg-fried-rice-chinese", name: "Veg Fried Rice / Noodles", price: "₹150", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
-    { id: "veg-schezwan-rice", name: "Veg Schezwan Rice / Noodles", price: "₹160", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
-    { id: "veg-garlic-burnt-rice", name: "Veg Garlic Burnt Rice / Noodles", price: "₹160", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
-    { id: "veg-manchurian", name: "Veg Manchurian (Dry / Gravy)", price: "₹150 / ₹160", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
-    { id: "veg-hakka-noodles", name: "Veg Hakka Noodles", price: "₹120", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
-    { id: "veg-triple-rice", name: "Veg Triple Rice", price: "₹150", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
-    { id: "chicken-fried-rice-chinese", name: "Chicken Fried Rice / Noodles", price: "Available", image: MENU_IMAGES.rice.vegBiryani, isVeg: false },
-    { id: "biryani-rice-only", name: "Biryani Rice", price: "₹70", image: MENU_IMAGES.rice.vegBiryani, isVeg: true },
-    { id: "mushroom-fried-rice", name: "Mushroom Fried Rice", price: "₹100", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
-  ],
-  southIndian: [
-    { id: "medu-vada-sambar-main", name: "Medu Vada Sambar", price: "₹80", image: MENU_IMAGES.southIndian.meduVada, isVeg: true },
-    { id: "idli-sambar-main", name: "Idli Sambar", price: "₹80", image: MENU_IMAGES.southIndian.idliSambar, isVeg: true },
-    { id: "batata-vada-sambar-main", name: "Batata Vada Sambar", price: "₹80", image: MENU_IMAGES.southIndian.batataVada, isVeg: true },
-    { id: "plain-dosa-main", name: "Plain Dosa", price: "₹60", image: MENU_IMAGES.southIndian.plainDosa, isVeg: true },
-    { id: "masala-dosa-main", name: "Masala Dosa", price: "₹80", image: MENU_IMAGES.southIndian.masalaDosa, isVeg: true },
+
+  // 🟢 STARTERS & SNACKS
+  starters: [
+    // Veg Starters & Snacks
+    { id: "samosa", name: "Samosa", price: "₹15", image: MENU_IMAGES.maharashtrianBreakfast.vadaPav, isVeg: true },
+    { id: "vada-pav", name: "Vada Pav", price: "₹20", image: MENU_IMAGES.maharashtrianBreakfast.vadaPav, isVeg: true, isPopular: true },
+    { id: "kanda-bhaji", name: "Kanda Bhaji", price: "₹50", image: MENU_IMAGES.maharashtrianBreakfast.kothimbirVadi, isVeg: true },
+    { id: "onion-pakoda", name: "Onion Pakoda", price: "₹80", image: MENU_IMAGES.maharashtrianBreakfast.kothimbirVadi, isVeg: true },
+    { id: "paneer-pakoda", name: "Paneer Pakoda", price: "₹90", image: MENU_IMAGES.maharashtrianBreakfast.kothimbirVadi, isVeg: true },
+    { id: "cheese-pakoda", name: "Cheese Pakoda", price: "₹100", image: MENU_IMAGES.maharashtrianBreakfast.kothimbirVadi, isVeg: true },
+    { id: "fry-papad", name: "Fry Papad", price: "₹20", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "masala-papad", name: "Masala Papad", price: "₹30", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+
+    // South Indian
+    { id: "idli-sambar", name: "Idli Sambar", price: "₹50", image: MENU_IMAGES.southIndian.idliSambar, isVeg: true },
+    { id: "medu-vada-sambar", name: "Medu Vada Sambar", price: "₹60", image: MENU_IMAGES.southIndian.meduVada, isVeg: true },
+    { id: "batata-vada-sambar", name: "Batata Vada Sambar", price: "₹70", image: MENU_IMAGES.southIndian.batataVada, isVeg: true },
+    { id: "plain-dosa", name: "Plain Dosa", price: "₹60", image: MENU_IMAGES.southIndian.plainDosa, isVeg: true },
+    { id: "masala-dosa", name: "Masala Dosa", price: "₹80", image: MENU_IMAGES.southIndian.masalaDosa, isVeg: true, isPopular: true },
     { id: "butter-dosa", name: "Butter Dosa", price: "₹100", image: MENU_IMAGES.southIndian.masalaDosa, isVeg: true },
-    { id: "paper-dosa", name: "Paper Dosa", price: "₹130", image: MENU_IMAGES.southIndian.paperPlainDosa, isVeg: true },
-    { id: "mysore-masala-dosa", name: "Mysore Masala Dosa", price: "₹130", image: MENU_IMAGES.southIndian.mysorePlainDosa, isVeg: true },
+    { id: "mysore-masala-dosa", name: "Mysore Masala Dosa", price: "₹120", image: MENU_IMAGES.southIndian.mysorePlainDosa, isVeg: true },
     { id: "mysore-cheese-dosa", name: "Mysore Cheese Dosa", price: "₹140", image: MENU_IMAGES.southIndian.mysorePlainDosa, isVeg: true },
     { id: "onion-uttappa", name: "Onion Uttappa", price: "₹90", image: MENU_IMAGES.southIndian.plainDosa, isVeg: true },
     { id: "tomato-onion-uttappa", name: "Tomato Onion Uttappa", price: "₹100", image: MENU_IMAGES.southIndian.plainDosa, isVeg: true },
     { id: "cheese-uttappa", name: "Cheese Uttappa", price: "₹130", image: MENU_IMAGES.southIndian.plainDosa, isVeg: true },
-    { id: "cheese-onion-uttappa", name: "Cheese Onion Uttappa", price: "₹140", image: MENU_IMAGES.southIndian.plainDosa, isVeg: true },
-    { id: "cheese-cut-dosa", name: "Cheese Cut Dosa", price: "₹130", image: MENU_IMAGES.southIndian.masalaDosa, isVeg: true },
-    { id: "schezwan-masala-dosa", name: "Schezwan Masala Dosa", price: "₹100", image: MENU_IMAGES.southIndian.masalaDosa, isVeg: true },
+
   ],
-  snacks: [
-    { id: "salted-fries", name: "Salted Fries", price: "₹90", image: MENU_IMAGES.maharashtrianBreakfast.cutVada, isVeg: true },
-    { id: "peri-peri-fries", name: "Peri Peri Fries", price: "₹110", image: MENU_IMAGES.maharashtrianBreakfast.cutVada, isVeg: true },
-    { id: "samosa", name: "Samosa", price: "₹15", image: MENU_IMAGES.maharashtrianBreakfast.vadaPav, isVeg: true },
-    { id: "vada-pav-new", name: "Vada Pav", price: "₹20", image: MENU_IMAGES.maharashtrianBreakfast.vadaPav, isVeg: true },
-    { id: "kanda-bhaji", name: "Kanda Bhaji", price: "₹50", description: "Per plate", image: MENU_IMAGES.maharashtrianBreakfast.kothimbirVadi, isVeg: true },
-    { id: "cheese-pakoda", name: "Cheese Pakoda", price: "₹100", image: MENU_IMAGES.maharashtrianBreakfast.kothimbirVadi, isVeg: true },
-    { id: "paneer-pakoda", name: "Paneer Pakoda", price: "₹90", image: MENU_IMAGES.maharashtrianBreakfast.kothimbirVadi, isVeg: true },
-    { id: "onion-pakoda", name: "Onion Pakoda", price: "₹80", image: MENU_IMAGES.maharashtrianBreakfast.kothimbirVadi, isVeg: true },
+
+  // 🥘 MAIN COURSE (VEG & PANEER)
+  vegMain: [
+    // Paneer Specials
+    { id: "paneer-butter-masala", name: "Paneer Butter Masala (Sweet)", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true, isPopular: true },
+    { id: "paneer-kadhai", name: "Paneer Kadhai", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
+    { id: "paneer-tikka-masala", name: "Paneer Tikka Masala", price: "₹150", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true, isPopular: true },
+    { id: "paneer-bhurji", name: "Paneer Bhurji", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
+    { id: "paneer-handi", name: "Paneer Handi (Half/Full)", price: "₹160 / ₹250", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
+    { id: "paneer-kolhapuri", name: "Paneer Kolhapuri", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
+    { id: "palak-paneer", name: "Palak Paneer", price: "₹120", image: MENU_IMAGES.mainCourse.palakPaneer, isVeg: true },
+    { id: "paneer-mutter-masala", name: "Paneer Mutter Masala", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
+    { id: "paneer-makhanwala", name: "Paneer Makhanwala (Sweet)", price: "₹120", image: MENU_IMAGES.mainCourse.paneerButterMasala, isVeg: true },
+
+    // Veg Main Course
+    { id: "veg-65-main", name: "Veg 65", price: "₹120", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "veg-kadai", name: "Veg Kadai", price: "₹130", image: MENU_IMAGES.mainCourse.vegKadhai, isVeg: true },
+    { id: "veg-marathi", name: "Veg Marathi", price: "₹130", image: MENU_IMAGES.mainCourse.vegKolhapuri, isVeg: true },
+    { id: "veg-jaipuri", name: "Veg Jaipuri", price: "₹120", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "veg-kolhapuri", name: "Veg Kolhapuri", price: "₹120", image: MENU_IMAGES.mainCourse.vegKolhapuri, isVeg: true },
+    { id: "veg-handi", name: "Veg Handi (Half/Full)", price: "₹150 / ₹220", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "veg-handi-special", name: "Veg Handi Special", price: "₹180", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "dum-aloo-punjabi", name: "Dum Aloo Punjabi", price: "₹100", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "mix-veg", name: "Mix Veg", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "soyabin-masala", name: "Soyabin Masala", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "aloo-gobi", name: "Aloo Gobi", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "aloo-mutter", name: "Aloo Mutter", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "green-peas-masala", name: "Green Peas Masala", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "sev-bhaji", name: "Sev Bhaji", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "plain-palak", name: "Plain Palak", price: "₹80", image: MENU_IMAGES.mainCourse.palakPaneer, isVeg: true },
+    { id: "palak-lasuni", name: "Palak Lasuni", price: "₹80", image: MENU_IMAGES.mainCourse.palakPaneer, isVeg: true },
+    { id: "dal-fry", name: "Dal Fry", price: "₹70", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "dal-tadka", name: "Dal Tadka", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
+    { id: "dal-butter-fry", name: "Dal Butter Fry", price: "₹80", image: MENU_IMAGES.mainCourse.mixVeg, isVeg: true },
   ],
+
+  // 🍗 NON-VEG MAIN COURSE
+  nonVegMain: [
+    { id: "chicken-curry", name: "Chicken Curry", price: "₹130", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
+    { id: "chicken-masala", name: "Chicken Masala", price: "₹150", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false, isPopular: true },
+    { id: "chicken-kadhai", name: "Chicken Kadhai", price: "₹160", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
+    { id: "chicken-kolhapuri", name: "Chicken Kolhapuri", price: "₹160", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
+    { id: "chicken-handi", name: "Chicken Handi (Half/Full)", price: "₹180 / ₹260", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false, isPopular: true },
+    { id: "butter-chicken", name: "Butter Chicken", price: "₹170", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
+    { id: "chicken-hyderabadi", name: "Chicken Hyderabadi", price: "₹160", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
+    { id: "chicken-do-pyaza", name: "Chicken Do Pyaza", price: "₹180", image: MENU_IMAGES.nonVeg.chickenCurry, isVeg: false },
+  ],
+
+  // 🥢 CHINESE CORNER
+  chinese: [
+    // Veg Chinese
+    { id: "veg-manchurian", name: "Veg Manchurian (Dry/Gravy)", price: "₹100 / ₹110", image: MENU_IMAGES.chineseStarters.vegManchurianDry, isVeg: true },
+    { id: "veg-crispy", name: "Veg Crispy", price: "₹120", image: MENU_IMAGES.chineseStarters.vegManchurianDry, isVeg: true },
+    { id: "paneer-chilli", name: "Paneer Chilli (Dry/Gravy)", price: "₹140 / ₹150", image: MENU_IMAGES.chineseStarters.paneerChilliDry, isVeg: true },
+    { id: "paneer-manchurian", name: "Paneer Manchurian", price: "₹140", image: MENU_IMAGES.chineseStarters.vegManchurianDry, isVeg: true },
+    { id: "paneer-crispy", name: "Paneer Crispy", price: "₹150", image: MENU_IMAGES.chineseStarters.vegManchurianDry, isVeg: true },
+    { id: "veg-hakka-noodles", name: "Veg Hakka Noodles", price: "₹90 / ₹140", image: MENU_IMAGES.chinese.vegHakkaNoodles, isVeg: true },
+    { id: "veg-schezwan-noodles", name: "Veg Schezwan Noodles", price: "₹100 / ₹150", image: MENU_IMAGES.chinese.vegSchezwanNoodles, isVeg: true },
+    { id: "veg-fried-rice-chinese", name: "Veg Fried Rice", price: "₹90 / ₹140", image: MENU_IMAGES.chinese.vegFriedRice, isVeg: true },
+    { id: "veg-schezwan-rice", name: "Veg Schezwan Rice", price: "₹100 / ₹150", image: MENU_IMAGES.chinese.vegSchezwanFriedRice, isVeg: true },
+    { id: "veg-triple-rice", name: "Veg Triple Rice", price: "₹130 / ₹180", image: MENU_IMAGES.chinese.vegFriedRice, isVeg: true },
+
+    // Non-Veg Chinese Starters
+    { id: "chicken-manchurian-starter", name: "Chicken Manchurian (Dry/Gravy)", price: "₹90 / ₹180", image: MENU_IMAGES.chineseStarters.vegManchurianDry, isVeg: false },
+    { id: "chicken-chilli-starter", name: "Chicken Chilli (Dry/Gravy)", price: "₹90 / ₹180", image: MENU_IMAGES.chineseStarters.paneerChilliDry, isVeg: false },
+    { id: "chicken-65-chinese", name: "Chicken 65", price: "₹90 / ₹180", image: MENU_IMAGES.chineseStarters.paneer65, isVeg: false, isPopular: true },
+
+    // Non-Veg Chinese Rice
+    { id: "chicken-fried-rice", name: "Chicken Fried Rice", price: "₹80 / ₹130", image: MENU_IMAGES.chinese.vegFriedRice, isVeg: false },
+    { id: "chicken-schezwan-rice", name: "Chicken Schezwan Rice", price: "₹90 / ₹140", image: MENU_IMAGES.chinese.vegSchezwanFriedRice, isVeg: false },
+    { id: "chicken-chilli-garlic-rice", name: "Chicken Chilli Garlic Rice", price: "₹90 / ₹150", image: MENU_IMAGES.chinese.vegFriedRice, isVeg: false },
+    { id: "chicken-triple-rice", name: "Chicken Triple Rice", price: "₹130 / ₹180", image: MENU_IMAGES.chinese.vegFriedRice, isVeg: false },
+    { id: "chicken-burnt-garlic-rice", name: "Chicken Burnt Garlic Rice", price: "₹130 / ₹180", image: MENU_IMAGES.chinese.vegFriedRice, isVeg: false },
+
+    // Non-Veg Chinese Noodles
+    { id: "chicken-hakka-noodles", name: "Chicken Hakka Noodles", price: "₹80 / ₹130", image: MENU_IMAGES.chinese.vegHakkaNoodles, isVeg: false },
+    { id: "chicken-schezwan-noodles", name: "Chicken Schezwan Noodles", price: "₹90 / ₹140", image: MENU_IMAGES.chinese.vegSchezwanNoodles, isVeg: false },
+    { id: "chicken-chilli-garlic-noodles", name: "Chicken Chilli Garlic Noodles", price: "₹90 / ₹150", image: MENU_IMAGES.chinese.vegHakkaNoodles, isVeg: false },
+    { id: "chicken-triple-noodles", name: "Chicken Triple Noodles", price: "₹130 / ₹180", image: MENU_IMAGES.chinese.vegHakkaNoodles, isVeg: false },
+    { id: "chicken-burnt-garlic-noodles", name: "Chicken Burnt Garlic Noodles", price: "₹130 / ₹180", image: MENU_IMAGES.chinese.vegHakkaNoodles, isVeg: false },
+  ],
+
+  // 🍚 RICE & BIRYANI
+  riceBiryani: [
+    { id: "plain-rice", name: "Plain Rice (Half/Full)", price: "₹50 / ₹60", image: MENU_IMAGES.rice.jeeraRice, isVeg: true },
+    { id: "jeera-rice", name: "Jeera Rice (Half/Full)", price: "₹60 / ₹70", image: MENU_IMAGES.rice.jeeraRice, isVeg: true },
+    { id: "masala-rice", name: "Masala Rice", price: "₹80", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
+    { id: "veg-fried-rice", name: "Veg Fried Rice", price: "₹100", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
+    { id: "mushroom-fried-rice", name: "Mushroom Fried Rice", price: "₹100", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
+    { id: "veg-pulav", name: "Veg Pulav", price: "₹80", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
+    { id: "paneer-pulav", name: "Paneer Pulav", price: "₹80", image: MENU_IMAGES.rice.vegPulao, isVeg: true },
+    { id: "dal-khichadi", name: "Dal Khichadi", price: "₹70", image: MENU_IMAGES.rice.curdRice, isVeg: true },
+    { id: "dal-khichadi-tadka", name: "Dal Khichadi Tadka", price: "₹80", image: MENU_IMAGES.rice.curdRice, isVeg: true },
+
+    // Biryani
+    { id: "veg-biryani", name: "Veg Biryani", price: "₹80", image: MENU_IMAGES.rice.vegBiryani, isVeg: true },
+    { id: "soyabin-biryani", name: "Soyabin Biryani", price: "₹80", image: MENU_IMAGES.rice.vegBiryani, isVeg: true },
+    { id: "paneer-biryani", name: "Paneer Biryani", price: "₹110", image: MENU_IMAGES.biryani.paneerBiryani, isVeg: true, isPopular: true },
+    { id: "egg-biryani", name: "Egg Biryani", price: "₹110", image: MENU_IMAGES.rice.vegBiryani, isVeg: false },
+    { id: "chicken-biryani", name: "Chicken Biryani", price: "₹150", image: MENU_IMAGES.biryani.chickenBiryani, isVeg: false, isPopular: true },
+  ],
+
+  // 🫓 ROTI / BREADS
   breads: [
-    { id: "chapati-main", name: "Chapati", price: "₹10", image: MENU_IMAGES.breads.chapati, isVeg: true, isPopular: true },
-    { id: "butter-chapati", name: "Butter Chapati", price: "₹15", image: MENU_IMAGES.breads.chapati, isVeg: true },
-    { id: "roti-plain", name: "Roti", price: "₹12", image: MENU_IMAGES.breads.butterNaan, isVeg: true },
-    { id: "butter-roti", name: "Butter Roti", price: "₹15", image: MENU_IMAGES.breads.butterNaan, isVeg: true },
-    { id: "naan-plain", name: "Naan", price: "₹30", image: MENU_IMAGES.breads.butterNaan, isVeg: true },
-    { id: "butter-naan-main", name: "Butter Naan", price: "₹40", image: MENU_IMAGES.breads.butterNaan, isVeg: true, isPopular: true },
-    { id: "jawari-bhakari", name: "Jawari Bhakari", price: "₹25", image: MENU_IMAGES.maharashtrianBreakfast.misalPav, isVeg: true },
-    { id: "bajari-bhakari", name: "Bajari Bhakari", price: "₹25", image: MENU_IMAGES.maharashtrianBreakfast.misalPav, isVeg: true },
-    { id: "fry-papad", name: "Fry Papad", price: "₹20", image: MENU_IMAGES.maharashtrianBreakfast.misalPav, isVeg: true },
-    { id: "masala-papad", name: "Masala Papad", price: "₹30", image: MENU_IMAGES.maharashtrianBreakfast.misalPav, isVeg: true },
+    { id: "roti", name: "Roti", price: "₹12", image: MENU_IMAGES.breads.chapati, isVeg: true },
+    { id: "butter-roti", name: "Butter Roti", price: "₹15", image: MENU_IMAGES.breads.chapati, isVeg: true },
+    { id: "paratha", name: "Paratha", price: "₹18", image: MENU_IMAGES.breads.chapati, isVeg: true },
+    { id: "jwari-bhakri", name: "Jwari Bhakri", price: "₹40", image: MENU_IMAGES.breads.chapati, isVeg: true },
+    { id: "bajri-bhakri", name: "Bajri Bhakri", price: "₹40", image: MENU_IMAGES.breads.chapati, isVeg: true },
   ],
-  beverages: [
-    { id: "tea-main", name: "Tea", price: "₹10", image: MENU_IMAGES.hotDrinks.tea, isVeg: true },
+
+  // 🥤 BEVERAGES & SWEETS
+  beveragesSweets: [
+    // Beverages
+    { id: "tea", name: "Tea", price: "₹10", image: MENU_IMAGES.hotDrinks.tea, isVeg: true },
     { id: "hot-coffee", name: "Hot Coffee", price: "₹20", image: MENU_IMAGES.hotDrinks.filterCoffee, isVeg: true },
-    { id: "tomato-soup-main", name: "Tomato Soup", price: "₹80", image: MENU_IMAGES.soups.vegTomatoSoup, isVeg: true },
-    { id: "veg-manchow-soup-main", name: "Veg Manchow Soup", price: "₹100", image: MENU_IMAGES.soups.vegManchowSoup, isVeg: true },
+    { id: "cold-drinks", name: "Cold Drinks", price: "MRP", image: MENU_IMAGES.hotDrinks.tea, isVeg: true },
+
+    // Sweets
+    { id: "gulab-jamun", name: "Gulab Jamun", price: "₹40", image: MENU_IMAGES.desserts.gulabJamun, isVeg: true },
+    { id: "rasgulla", name: "Rasgulla", price: "₹40", image: MENU_IMAGES.desserts.gulabJamun, isVeg: true },
+    { id: "gajar-halwa", name: "Gajar Halwa", price: "₹60", image: MENU_IMAGES.desserts.gulabJamun, isVeg: true },
+    { id: "shrikhand", name: "Shrikhand", price: "₹60", image: MENU_IMAGES.desserts.gulabJamun, isVeg: true },
+    { id: "amrakhand", name: "Amrakhand", price: "₹70", image: MENU_IMAGES.desserts.gulabJamun, isVeg: true },
+    { id: "kheer", name: "Kheer", price: "₹50", image: MENU_IMAGES.desserts.gulabJamun, isVeg: true },
+    { id: "ice-cream", name: "Ice Cream (Vanilla/Strawberry/Chocolate)", price: "₹40", image: MENU_IMAGES.desserts.iceVanilla, isVeg: true },
   ],
 }

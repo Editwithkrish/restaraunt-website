@@ -45,8 +45,10 @@ export default function MenuItemCard({
   // Find if item is in cart
   const cartItem = items.find(item => item.id === id)
 
-  // Parse price string like "₹50" or "50" to number
-  const numericPrice = parseInt(price.replace(/[^0-9]/g, "")) || 0
+  // Parse price string like "₹50", "₹150 / ₹220" or "50" to number
+  // For dual prices (Half/Full), it takes the first one as default for the cart
+  const basePrice = price.includes('/') ? price.split('/')[0] : price;
+  const numericPrice = parseInt(basePrice.replace(/[^0-9]/g, "")) || 0
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation()

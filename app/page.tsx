@@ -44,6 +44,7 @@ import EnhancedCard from "@/components/enhanced-card"
 import AnimatedCounter from "@/components/animated-counter"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import FoodDeliveryButtons from "@/components/food-delivery-buttons"
+import OrderButtonsHero from "@/components/order-buttons-hero"
 import { useTranslation } from "@/hooks/use-translation"
 import LanguageSwitcher from "@/components/language-switcher"
 import AnimatedText from "@/components/animated-text"
@@ -55,6 +56,7 @@ import { BRANDING_IMAGES, HERO_IMAGES, FEATURED_DISHES, GALLERY_IMAGES } from "@
 import FreeDeliverySection from "@/components/free-delivery-section"
 import { cn } from "@/lib/utils"
 import BottomNav from "@/components/bottom-nav"
+import FloatingOrderButton from "@/components/floating-order-button"
 
 export default function Home() {
   const { t, language } = useTranslation()
@@ -71,8 +73,14 @@ export default function Home() {
       if (!item) return false;
       const lowerQuery = searchQuery.toLowerCase();
 
-      // If searching for "bestseller", show items marked as popular
-      if (lowerQuery === "bestseller") return (item as any).isPopular;
+      // Flexible matching
+      if (lowerQuery === "bestseller" || lowerQuery === "popular" || lowerQuery === "star" || lowerQuery === "best") return (item as any).isPopular;
+      if (lowerQuery === "veg" || lowerQuery === "vegetarian") return item.isVeg;
+      if (lowerQuery === "non veg" || lowerQuery === "nonveg" || lowerQuery === "non-veg" || lowerQuery === "chicken" || lowerQuery === "egg") {
+        if (lowerQuery === "chicken" && item.name.toLowerCase().includes("chicken")) return true;
+        if (lowerQuery === "egg" && item.name.toLowerCase().includes("egg")) return true;
+        return !item.isVeg;
+      }
 
       const nameMatch = item.name?.toLowerCase().includes(lowerQuery);
       const englishNameMatch = (item as any).englishName?.toLowerCase().includes(lowerQuery);
@@ -183,7 +191,7 @@ export default function Home() {
                   <span>The Pride of Dhanori, Pune</span>
                 </motion.div>
 
-                <h1 className="text-6xl md:text-8xl lg:text-[7rem] xl:text-[9rem] font-black text-maroon-900 tracking-tighter leading-[0.85] uppercase drop-shadow-2xl">
+                <h1 className="text-6xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-black text-maroon-900 tracking-tighter leading-[0.85] uppercase drop-shadow-2xl">
                   TASTE THE <br />
                   <span className="text-maroon-900 italic relative inline-block font-serif tracking-normal mt-4">
                     Tradition
@@ -196,8 +204,8 @@ export default function Home() {
                   </span>
                 </h1>
 
-                <p className="text-lg md:text-2xl font-bold text-maroon-900/80 uppercase tracking-[0.2em] max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans mt-4">
-                  Savor the <span className="text-maroon-900 border-b-8 border-secondary/30 pb-1">True Magic</span> of Authentic Cooking.
+                <p className="text-lg md:text-2xl font-bold text-maroon-900/80 uppercase tracking-widest max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans mt-4">
+                  Savor the <span className="text-maroon-900 border-b-8 border-secondary/30 pb-1">True Magic</span> of Homemade Authentic Flavors.
                 </p>
 
                 {/* Enhanced Search Bar */}
@@ -222,24 +230,7 @@ export default function Home() {
                   )}
                 </div>
 
-                <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-                  {[
-                    { label: "Bestsellers", query: "Bestseller", color: "bg-maroon-900 text-white shadow-maroon-900/20" },
-                    { label: "Biryani", query: "Biryani", color: "bg-secondary text-white shadow-secondary/20" },
-                    { label: "Non-Veg", query: "Chicken", color: "bg-white text-maroon-900 border-2 border-maroon-900/10 shadow-xl" },
-                  ].map((item, i) => (
-                    <button
-                      key={item.label}
-                      onClick={() => setSearchQuery(item.query)}
-                      className={cn(
-                        "px-8 py-4 rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] shadow-2xl hover:translate-y-[-4px] transition-all active:scale-95 border-b-4 border-black/10",
-                        item.color
-                      )}
-                    >
-                      {item.label}
-                    </button>
-                  ))}
-                </div>
+                <OrderButtonsHero className="pt-4 max-w-xl mx-auto lg:mx-0" />
               </motion.div>
             </div>
 
@@ -356,19 +347,19 @@ export default function Home() {
             icon={<Utensils className="h-8 w-8 text-white" />}
           />
 
-          <Tabs defaultValue="combos" className="mt-4">
+          <Tabs defaultValue="thalis" className="mt-4">
             <div className="sticky top-16 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100 -mx-4 px-4 sm:mx-0 sm:px-0">
               <div className="overflow-x-auto no-scrollbar scroll-smooth">
                 <TabsList className="h-14 flex justify-start gap-8 bg-transparent w-max border-none px-4">
                   {[
-                    { value: "combos", label: "Combos & Thalis" },
-                    { value: "vegSabzi", label: "Veg & Paneer" },
-                    { value: "nonVegSpecials", label: "Non-Veg Specials" },
-                    { value: "riceChinese", label: "Rice & Chinese" },
-                    { value: "southIndian", label: "South Indian" },
-                    { value: "snacks", label: "Snacks & Fries" },
-                    { value: "breads", label: "Roti & Sides" },
-                    { value: "beverages", label: "Soups & Drinks" },
+                    { value: "thalis", label: "Specials & Thalis" },
+                    { value: "starters", label: "Starters & Snacks" },
+                    { value: "vegMain", label: "Veg Specialties" },
+                    { value: "nonVegMain", label: "Chicken Specialties" },
+                    { value: "chinese", label: "Chinese Corner" },
+                    { value: "riceBiryani", label: "Rice & Biryani" },
+                    { value: "breads", label: "Indian Breads" },
+                    { value: "beveragesSweets", label: "Beverages & Desserts" },
                   ].map((tab) => (
                     <TabsTrigger
                       key={tab.value}
@@ -390,29 +381,29 @@ export default function Home() {
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <TabsContent value="combos" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.combos} title="Chef's Special Combo Thalis" />
+                  <TabsContent value="thalis" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.thalis} title="Signature Thalis" />
                   </TabsContent>
-                  <TabsContent value="vegSabzi" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.vegSabzi} title="Vegetarian & Paneer Delights" />
+                  <TabsContent value="starters" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.starters} title="Starters & Street Food" />
                   </TabsContent>
-                  <TabsContent value="nonVegSpecials" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.nonVegSpecials} title="Chicken & Egg Specials" />
+                  <TabsContent value="vegMain" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.vegMain} title="Main Course (Vegetarian)" />
                   </TabsContent>
-                  <TabsContent value="riceChinese" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.riceChinese} title="Aromatic Rice & Indo-Chinese" />
+                  <TabsContent value="nonVegMain" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.nonVegMain} title="Main Course (Chicken)" />
                   </TabsContent>
-                  <TabsContent value="southIndian" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.southIndian} title="South Indian Favorites" />
+                  <TabsContent value="chinese" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.chinese} title="Indo-Chinese Fusion" />
                   </TabsContent>
-                  <TabsContent value="snacks" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.snacks} title="Delicious Snacks & Fries" />
+                  <TabsContent value="riceBiryani" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.riceBiryani} title="Rice & Biryani" />
                   </TabsContent>
                   <TabsContent value="breads" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.breads} title="Fresh Roti, Bhakari & Sides" />
+                    <MenuCategory items={menuData.breads} title="Indian Breads & Bhakri" />
                   </TabsContent>
-                  <TabsContent value="beverages" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
-                    <MenuCategory items={menuData.beverages} title="Refreshing Beverages & Soups" />
+                  <TabsContent value="beveragesSweets" className="mt-0 focus-visible:outline-none focus:outline-none border-none">
+                    <MenuCategory items={menuData.beveragesSweets} title="Refreshing Drinks & Desserts" />
                   </TabsContent>
                 </motion.div>
               </AnimatePresence>
@@ -915,6 +906,12 @@ export default function Home() {
               </div>
               <p className="text-white/60 text-xs leading-relaxed uppercase font-black tracking-widest">Authentic Home-Style Cooking & Premium Catering Services. Serving traditional Puneri flavors.</p>
               <div className="flex gap-4">
+                <a href="#" className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center hover:bg-[#E23744] transition-colors hover:text-white border-b-4 border-gray-700">
+                  <span className="font-black text-xl">Z</span>
+                </a>
+                <a href="#" className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center hover:bg-[#FC8019] transition-colors hover:text-white border-b-4 border-gray-700">
+                  <span className="font-black text-xl">S</span>
+                </a>
                 <a href="#" className="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center hover:bg-primary transition-colors hover:text-primary-foreground border-b-4 border-gray-700">
                   <Instagram className="h-6 w-6" />
                 </a>
@@ -977,6 +974,7 @@ export default function Home() {
 
 
       <ScrollToTop />
+      <FloatingOrderButton />
       <BottomNav />
     </div >
   )
